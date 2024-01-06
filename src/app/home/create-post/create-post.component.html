@@ -1,0 +1,18 @@
+<div class="dark-mode text-center">
+    <form class="form col-md-4 col-sm-10" [formGroup]="postForm" (ngSubmit)="onSubmit()">
+        <label for="content">Content:</label>
+        <textarea id="content" formControlName="content"></textarea>
+
+        <label for="mediaType">Media Type:</label>
+        <select id="mediaType" formControlName="mediaType">
+            <option value="Image">Image</option>
+            <option value="Video">Video</option>
+            <option value=null>None</option>
+        </select>
+
+        <label for="mediaUrl">Media URL:</label>
+        <input type="text" id="mediaUrl" formControlName="mediaUrl">
+
+        <button class="px-4 my-2" type="submit">Submit</button>
+    </form>
+</div>

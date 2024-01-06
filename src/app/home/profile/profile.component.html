@@ -1,0 +1,86 @@
+<div style="margin-left: 10%; margin-right: 10%; margin-top: 2%;">
+  <div>
+    <div class="topImg"><img src="http://myslab42s08:3000/aakashkumar.c/infymovie-server/raw/branch/main/cover.jpg" alt="Cover Image"></div>
+    <div class="displayImg"><img src="http://myslab42s08:3000/aakashkumar.c/infymovie-server/raw/branch/main/assets/blank.png" alt="Profile pic"></div>
+    <div class="profileName">
+      <p style="font-weight: 600; margin-bottom: 0px;">{{this.userProfile?.firstName + ' ' + this.userProfile?.lastName}}</p>
+      <p style="font-weight: 500; font-size: medium;">{{this.userProfile?.friends}} Friends</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-5 col-xs-12">
+      <div class="info" style="color: var(--lightgray); margin-bottom: 15px;">
+        <h5 style="margin-bottom: 15px;"><b>About</b></h5>
+        <div class="intro">
+          <div class="text">
+            <span><i class="fas fa-building"></i></span>
+            &nbsp; <span>Works at <b>Infosys</b></span>
+          </div>
+          <div class="text">
+            <span><i class="fas fa-graduation-cap"></i></span>
+            &nbsp;  <span>Went To <b>Indian Institute of Technology, Kanpur</b></span>
+          </div>
+          <div class="text">
+            <span><i class="fas fa-home"></i>&nbsp;&nbsp;  </span>Lives in <b>Bangalore, India</b>
+          </div>
+          <div class="text">
+            <span><i class="fas fa-heart"></i>&nbsp; </span> Single
+          </div>
+        </div>
+        <div class="but">
+          <button>Edit Details</button>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-md-7 col-xs-12">
+      <div class="posts">
+        <!-- posts divs -->
+      <div *ngFor="let post of posts">
+        <div class="post">
+          <a class="user" style="text-decoration: none;" [routerLink]="['/profile', post.user?.userId]" (click)="showLoading=false">
+            <div class="name-image">
+              <div class="image">
+                <img src="../../../assets/empty-user-filled.png" />
+              </div>
+              <div class="name-date">
+                <a class="name">{{post.user?.firstName + ' '+ post.user?.lastName}}</a>
+                <div class="date">
+                  <a>{{formatDateTime(post.dateTime)}}</a>
+                  &nbsp;
+                  <i class="fas fa-globe-europe"></i>
+                </div>
+              </div>
+            </div>
+          </a>
+          <!-- content div -->
+          <div class="post-content">
+            {{post.content}}
+          </div>
+          <div class="post-content" *ngIf="post.mediaType?.match('Image') && post.mediaUrl.length>0">
+            <img src={{post.mediaUrl}} alt="Post By {{post.user?.firstName}}">
+          </div>
+          <!-- actions div -->
+          <div class="actions">
+            <div class="like" href=# (click)="handleLike(post.postId)" >
+              <i [class]="post.isLiked ? 'fa fa-thumbs-up': 'far fa-thumbs-up'" [style.color]="post.isLiked ? 'blue': '#8d949e'"></i>
+              <span [style.color]="post.isLiked ? 'blue': '#8d949e'">{{post.likes}} Likes</span>
+            </div>
+            <div class="comment" href=# (click)="makeAlertElem('Comments are disabled')">
+              <i class="far fa-comment-alt"></i>
+              <span>comment</span>
+            </div>
+            <div class="share" href=# (click)="makeAlertElem('Share is disabled')">
+              <i class="fas fa-share"></i>
+              <span>share</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="lottie-loader"></div>
+<div id="lottie-loader2"></div>

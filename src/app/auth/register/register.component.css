@@ -1,0 +1,48 @@
+.registration-page {
+  background-color: #181818;
+  color: #fff;
+}
+
+h4 {
+  color: var(--facebook-blue);
+  font-weight: bold;
+}
+
+.card {
+  background-color: var(--card-bg);
+  border: 1px solid #505050;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  margin: 0 0% 0 0%;
+}
+
+.input-field {
+  border: 1px solid #505050;
+  border-radius: 5px;
+  padding: 12px;
+}
+
+.icon {
+  display: inline-block;
+  margin-left: 10px;
+  color: var(--facebook-blue);
+}
+
+.gender-label {
+  color: var(--facebook-blue);
+  font-weight: 600;
+}
+
+.btn-primary {
+  background-color: var(--facebook-blue);
+  border: none;
+  font-weight: bold;
+  width: 100%;
+}
+
+.form-check-input {
+  margin-right: 5px;
+  margin-left: 10px;
+}
+
+/* Add any additional custom styles as needed */

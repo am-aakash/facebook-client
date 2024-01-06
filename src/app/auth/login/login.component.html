@@ -1,0 +1,59 @@
+<div class="login-page">
+  <div class="container">
+    <div class="row justify-content-center align-items-center min-vh-100">
+      <div class="col-md-4 col-sm-12">
+        <div class="logo text-center mx-auto">
+          <div id="lottie-container" class="img-fluid mb-3 logo-img"></div>
+          <p class="facebook-text">Facebook</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-12 text-center">
+        <div class="card">
+          <div class="card-body">
+            <form class="form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+              <div class="form-group">
+                <input type="text" class="form-control input-field" formControlName="username"
+                  placeholder="Enter Username" />
+                <span id="usernameError" class="text-danger"
+                  *ngIf="loginForm.controls['username'].dirty && loginForm.controls['username'].invalid">
+                  Invalid username! (Use : 'a-z', '0-9', '_' and '.')
+                </span>
+              </div>
+              <div class="form-group my-3">
+                <input type="password" class="form-control input-field" formControlName="password"
+                  placeholder="Enter Password" />
+                <span id="passwordError" class="text-danger text-start "
+                  *ngIf="loginForm.controls['password'].dirty && loginForm.controls['password'].invalid">
+                  Enter valid password
+                </span>
+              </div>
+              <button class="btn btn-primary btn-block btn-lg" [disabled]="loginForm.pristine || loginForm.invalid" >
+                 <div>Login</div>
+              </button>
+            </form>
+            <div class="text-center mt-3">
+              <a routerLink="/forgot-pw" class="forgot-password-link">Forgotten password?</a>
+            </div>
+            <hr class="divider" />
+            <div class="text-center">
+              <button class="btn btn-success btn-block" (click)="(createAccount)" routerLink="/register">
+                Create new account
+              </button>
+            </div>
+          </div>
+        </div>
+        <p class="my-2" style="font-size: small">Developed in <b>India</b></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="lottie-loader" class="position-fixed bottom-0 start-50 translate-middle-x my-4" *ngIf="showLoginLoading"></div>
+
+<div id="toast-sticky-message" class="position-fixed bottom-0 start-50 translate-middle-x my-4">
+  <div class="toast text-center" [style.background-color]="'red'" [style.color]="'whitesmoke'">
+    <div class="toast-body">
+      <span id="toast-content"></span>
+    </div>
+  </div>
+</div>

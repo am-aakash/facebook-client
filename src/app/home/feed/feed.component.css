@@ -1,0 +1,248 @@
+* {
+  box-sizing: border-box;
+}
+
+#lottie-loader {
+  height: 200px;
+  width: 200px;
+  position: fixed;
+  top: 50%;
+  left: 35%;
+  transform: translate(-50%, -50%);
+}
+
+@media (max-width: 628px) {
+  #lottie-loader {
+    height: 100px;
+    width: 100px;
+    position: fixed;
+    top: 36%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+#lottie-loader2 {
+  height: 200px;
+  width: 200px;
+  position: fixed;
+  top: 50%;
+  left: 35%;
+  transform: translate(-50%, -50%);
+}
+
+@media (max-width: 628px) {
+  #lottie-loader2 {
+    height: 100px;
+    width: 100px;
+    display: none;
+  }
+}
+
+/*******************************************************************/
+/* create post */
+.posts .create-post {
+  background-color: var(--bgcolor);
+  padding: 13px 17px;
+  padding-bottom: 0;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.posts .create-post .create {
+  display: grid;
+  grid-template-columns: 55px 1fr;
+  border-bottom: 1px solid var(--lightgray);
+  padding-bottom: 20px;
+}
+
+.posts .create-post .image {
+  display: inline-block;
+  width: 45px;
+  height: 45px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.posts .create-post img {
+  width: 45px;
+  background-size: cover;
+}
+
+.posts .create-post .create .input {
+  border: none;
+  outline: none;
+  padding-left: 15px;
+  border-radius: 30px;
+  text-align: start;
+  background-color: var(--bghover);
+  color: var(--darkgray);
+}
+
+.posts .create-post .create .input p {
+  font-weight: 600;
+  margin-top: 15px;
+  padding-left: 15px;
+  color: var(--darkgray);
+}
+
+.posts .create-post .video {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.posts .create-post .video .one,
+.posts .create-post .video .two,
+.create-post .video .three {
+  text-align: center;
+  color: #777;
+  font-weight: 600;
+  padding: 10px 10px;
+  border-radius: 5px;
+}
+
+.posts .create-post .video div:hover {
+  background-color: var(--bghover);
+}
+
+.posts .create-post .video .one i {
+  color: var(--red);
+  font-size: 20px;
+  margin-right: 5px;
+}
+
+.posts .create-post .video .two i {
+  color: var(--green);
+  font-size: 20px;
+  margin-right: 5px;
+}
+
+.posts .create-post .video .three i {
+  color: var(--blue);
+  font-size: 20px;
+  margin-right: 5px;
+}
+
+/**********************************************************/
+/* post */
+.post {
+  background-color: var(--bgcolor);
+  /* height: 300px; */
+  border-radius: 8px;
+}
+
+.post .user .image {
+  width: 45px;
+  height: 45px;
+  margin-right: 10px;
+}
+
+.post .user .image img {
+  width: 45px;
+  border-radius: 50%;
+  background-size: cover;
+}
+
+.post {
+  padding: 15px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.post .user {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.post .user .name-image {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.post .user .name-date .name {
+  color: var(--lightgray);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.post .user .name-date .date a {
+  color: var(--darkgray);
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.post .user .name-date .date {
+  cursor: pointer;
+}
+
+.fa-globe-europe {
+  color: var(--darkgray);
+}
+
+.post .post-content {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  max-width: 100%;
+  max-height: 120;
+  color: var(--lightgray);
+}
+
+.post .post-content img {
+  max-width: 100%;
+  height: auto;
+  width: 100%;
+}
+
+.post .actions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  text-align: center;
+  border-top: 1px solid var(--darkgray);
+  padding-top: 15px;
+  padding-bottom: 0px;
+}
+
+.post .actions i {
+  margin-right: 5px;
+  color: var(--darkgray);
+}
+
+.post .actions div {
+  cursor: pointer;
+  color: var(--darkgray);
+}
+
+
+/* Friends */
+.friends-tile {
+  display: flex;
+  align-items: center;
+  background: #292929;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.friends-tile:hover {
+  background-color: #424242;
+}
+
+.leading-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-right: 10px;
+}
+
+.leading-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

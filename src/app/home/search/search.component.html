@@ -1,0 +1,36 @@
+<div class="text-center">
+    <div class="col-md-6 col-sm-10 m-auto my-3">
+        <form class="form" [formGroup]="searchForm" (ngSubmit)="onInput()">
+            <input type="text" formControlName="searchtext" class="form-control input-field"
+                placeholder="Enter Name or Username" (input)="onInput()" />
+        </form>
+    </div>
+    <div *ngIf="searchForm.controls['searchtext'].value.length===0" style="color: var(--lightgray);">Search for your
+        friend here</div>
+    <div *ngFor="let profile of people">
+        <div class="friends-tile">
+            <div class="leading-icon">
+                <img src="../../../assets/empty-user-filled.png" alt="Leading Icon" />
+            </div>
+            <div class="tile-content">
+                <h5 class="tile-title" style="color: var(--lightgray);">{{profile.firstName + " " + profile.lastName}}
+                </h5>
+            </div>
+            <div class="trailing-icon" (click)="handleTrailTap(profile)">
+                <img [src]="profile.isFriend? '../../../assets/friends-icon.png' : (!profile.requestSent)? '../../../assets/send-request.png' : '../../../assets/send-request-grey.png'"
+                    alt="Trailing Icon" />
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="lottie-loader" class="position-fixed  bottom-0  start-50 translate-middle-x" *ngIf="animate"></div>
+
+
+<div id="toast-sticky-message2" class="position-fixed bottom-0 start-50 translate-middle-x my-4">
+    <div class="toast2 text-center" [style.background-color]="'grey'" [style.color]="'white'">
+        <div class="toast-body">
+            <span id="toast-content"></span>
+        </div>
+    </div>
+</div>

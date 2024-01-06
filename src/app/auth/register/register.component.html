@@ -1,0 +1,101 @@
+<div class="registration-page">
+  <div class="container">
+    <div class="row justify-content-center align-items-center min-vh-100">
+      <div class="col-md-8 col-sm-12">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="text-start mb-4">Create New Account</h4>
+            <form class="form" [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+              <div class="form-group my-3">
+                <input type="text" class="form-control input-field" formControlName="username"
+                  placeholder="Enter Username" (input)="checkUsername()" />
+                <span id="usernameError" class="text-danger"
+                  *ngIf="registrationForm.controls['username'].dirty && registrationForm.controls['username'].invalid">
+                  Invalid username! (Use : 'a-z', '0-9', '_' and '.')
+                </span>
+                <span id="usernameError" class="text-danger"
+                  *ngIf="registrationForm.controls['username'].valid && !isUsernameValid">
+                  <b>Username Unavailable</b>
+                </span>
+                <span id="usernameError" class="text-success"
+                  *ngIf="registrationForm.controls['username'].valid && isUsernameValid">
+                  <b>Username Available</b>
+                </span>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control input-field" formControlName="firstName"
+                  placeholder="First Name" />
+              </div>
+              <div class="form-group my-3">
+                <input type="text" class="form-control input-field" formControlName="lastName"
+                  placeholder="Last Name" />
+              </div>
+              <div class="form-group my-3">
+                <input type="emailId" class="form-control input-field" formControlName="emailId" placeholder="Enter EmailId" />
+                <span id="emailIdError" class="text-danger"
+                  *ngIf="registrationForm.controls['emailId'].dirty && registrationForm.controls['emailId'].invalid">
+                  Enter valid email
+                </span>
+              </div>
+              <div class="form-group">
+                <input type="date" class="form-control input-field" formControlName="dateOfBirth" />
+                <span id="dateOfBirthError" class="text-danger"
+                  *ngIf="registrationForm.controls['dateOfBirth'].dirty && registrationForm.controls['dateOfBirth'].hasError('minimumAge')">
+                  Date of Birth must be at least 13 years ago
+                </span>
+              </div>
+              <div class="form-group  my-3">
+                <label for="gender-label">Select Gender</label><br>
+                <div class="form-check-inline">
+                  <label class="form-check-label">
+                    <input type="radio" class="form-check-input" id="gender" formControlName="gender" value="Male" />
+                    Male
+                  </label>
+                  &nbsp;
+                  <label class="form-check-label">
+                    <input type="radio" class="form-check-input" id="gender" formControlName="gender" value="Female" />
+                    Female
+                  </label>
+                  &nbsp;
+                  <label class="form-check-label">
+                    <input type="radio" class="form-check-input" id="gender" formControlName="gender" value="Others" />
+                    Others
+                  </label>
+                </div>
+                <div class="form-check-inline">
+                </div>
+              </div>
+              <div class="form-group">
+                <input type="password" class="form-control input-field" formControlName="password"
+                  placeholder="Password" />
+                <span id="passwordError" class="text-danger"
+                  *ngIf="registrationForm.controls['password'].dirty && registrationForm.controls['password'].invalid">
+                  Password must have 8 to 16 characters
+                </span>
+              </div>
+              <div class="form-group my-3">
+                <input type="password" class="form-control input-field " formControlName="rePassword"
+                  placeholder="Re-enter Password" />
+                <span id="rePasswordError" class="text-danger"
+                  *ngIf="registrationForm.controls['rePassword'].dirty && registrationForm.controls['password'].value != registrationForm.controls['rePassword'].value ">
+                  Passwords must match
+                </span>
+              </div>
+              <button class="btn btn-primary btn-block btn-lg" [disabled]="registrationForm.invalid">
+                Register
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="toast-sticky-message" class="position-fixed bottom-0 start-50 translate-middle-x my-4">
+  <div class="toast text-center" [style.background-color]="'red'" [style.color]="'whitesmoke'">
+    <div class="toast-body">
+      <span id="toast-content"></span>
+    </div>
+  </div>
+</div>

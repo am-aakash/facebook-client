@@ -1,0 +1,82 @@
+.app-container {
+  background-color: #181818; /* Dark background color */
+  display: flex;
+  flex-direction: column;
+  min-height: calc(
+    100vh - 60.5px
+  ); /* Subtract the height of the navbar (adjust as needed) */
+  overflow: hidden; /* Hide overflow content */
+}
+
+#lottie-container {
+  height: 40px;
+  width: 40px;
+}
+
+.navbar-dark {
+  background-color: #292929;
+  height: 60px;
+}
+
+.image-container img {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+}
+
+.nav-icons {
+  width: auto; /* Set the desired width */
+  height: auto; /* Set the desired height */
+  margin-right: 10px; /* Add some spacing between images */
+}
+
+.profile-menu {
+  position: absolute;
+  top: 70px; /* Adjust the distance from the icon */
+  right: 12px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  display: flex;
+}
+
+.profile-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.profile-menu ul li {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+}
+
+/* Show the menu when isProfileMenuOpen is true */
+.profile-menu.show {
+  display: block;
+}
+
+.modal {
+  display: none;
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1050;
+  overflow: auto;
+  padding: 5%;
+}
+
+.modal.show {
+  display: block;
+}
+
+.modal-dialog {
+  height: 80%;
+  max-width: 800px; /* Adjust the width as needed */
+  margin: 0% auto;
+}

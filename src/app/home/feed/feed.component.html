@@ -1,0 +1,94 @@
+<div class="row" style="margin-left: 8%; margin-right: 8%; margin-top: 2%; margin-bottom: 2%;">
+  &nbsp;&nbsp;
+  <div class="col-md-8 col-sm-12">
+    <div class="posts">
+      <!-- create post -->
+      <div class="create-post">
+        <div class="create">
+          <div class="image">
+            <img src="../../../assets/empty-user.png">
+          </div>
+          <button class="input" (click)="router.navigate(['/add-post']);">
+            <p>What's on your mind? {{this.userProfile?.firstName}}</p>
+          </button>
+        </div>
+        <div class="video" (click)="makeAlertElem('Not implemented')">
+          <div href=# class="one">
+            <i class="fas fa-video"></i>
+            <span>Live Video</span>
+          </div>
+          <div href=# class="two">
+            <i class="far fa-file-image"></i>
+            <span>Photo/Video</span>
+          </div>
+          <div class="three">
+            <i class="fas fa-flag"></i>
+            <span>Life Event</span>
+          </div>
+        </div>
+      </div>
+      <!-- posts divs -->
+      <div *ngFor="let post of posts">
+        <div class="post">
+          <a class="user" style="text-decoration: none;" [routerLink]="['/profile', post.user?.userId]"
+            (click)="showLoading=false">
+            <div class="name-image">
+              <div class="image">
+                <img src="../../../assets/empty-user-filled.png" />
+              </div>
+              <div class="name-date">
+                <a class="name">{{post.user?.firstName + ' '+ post.user?.lastName}}</a>
+                <div class="date">
+                  <a>{{formatDateTime(post.dateTime)}}</a>
+                  &nbsp;
+                  <i class="fas fa-globe-europe"></i>
+                </div>
+              </div>
+            </div>
+          </a>
+          <!-- content div -->
+          <div class="post-content">
+            {{post.content}}
+          </div>
+          <div class="post-content" *ngIf="post.mediaType?.match('Image') && post.mediaUrl.length>0">
+            <img src={{post.mediaUrl}} alt="Post By {{post.user?.firstName}}">
+          </div>
+          <!-- actions div -->
+          <div class="actions">
+            <div class="like" href=# (click)="handleLike(post.postId)">
+              <i [class]="post.isLiked ? 'fa fa-thumbs-up': 'far fa-thumbs-up'"
+                [style.color]="post.isLiked ? 'blue': '#8d949e'"></i>
+              <span [style.color]="post.isLiked ? 'blue': '#8d949e'">{{post.likes}} Likes</span>
+            </div>
+            <div class="comment" href=# (click)="makeAlertElem('Comments are disabled')">
+              <i class="far fa-comment-alt"></i>
+              <span>comment</span>
+            </div>
+            <div class="share" href=# (click)="makeAlertElem('Share is disabled')">
+              <i class="fas fa-share"></i>
+              <span>share</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3 col-sm-6 col-xs-6 align-self-start px-3"
+    style="background-color: #292929; color: var(--lightgray); border-radius: 10px; padding-top: 15px;">
+    <h5><b>My Friends</b></h5>
+    <div *ngFor="let friend of friends">
+      <a class="friends-tile" style="text-decoration: none;color: var(--lightgray);"
+        [routerLink]="['/profile', friend?.userId]">
+        <div class="leading-icon">
+          <img src="../../../assets/empty-user-filled.png" alt="Leading Icon" />
+        </div>
+        <div class="tile-content">
+          <h5 class="tile-title" style="margin-top: 5px;">{{friend.firstName + " " + friend.lastName}}</h5>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div id="lottie-loader"></div>
+<div id="lottie-loader2"></div>

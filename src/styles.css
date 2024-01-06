@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+:root {
+  --facebook-blue: #1877f2; /* Define a CSS variable for Facebook blue */
+  /* --card-bg: #3a3a3a; */
+  --card-bg: #fff;
+  --bgcolor: #292929;
+  --color: var(--facebook-blue);
+  --bghover: #424242;
+  --bodycolor: #424242;
+  --darkgray: #8d949e;
+  --lightgray: #afafaf;
+  --red: #fa383e;
+  --green: #00a400;
+  --blue: #3578e5;
+}

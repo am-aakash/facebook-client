@@ -1,0 +1,84 @@
+<div class="row" style="margin-left: 8%; margin-right: 8%; margin-top: 2%">
+  &nbsp;&nbsp;
+  <div class="group-box col-md-4 p-3" style="background-color: #292929; color: whitesmoke">
+    <h4 style="color: var(--lightgray);">Manage Friends</h4>
+    <div class="list-tile my-1 p-3" (click)="getMyFriends()" [class.active]="tileMyFriendsActive">
+      <div class="list-icon">
+        <img src="../../../assets/friends-icon.png" alt="Icon" />
+      </div>
+      <div class="list-content">
+        <p class="list-title">My Friends</p>
+      </div>
+    </div>
+    <div class="list-tile p-3" (click)="getRecievedReq()" [class.active]="tileRecievedReqActive">
+      <div class="list-icon">
+        <img src="../../../assets/add-friends.png" alt="Icon" />
+      </div>
+      <div class="list-content">
+        <p class="list-title">Recieved Requests</p>
+      </div>
+    </div>
+    <div class="list-tile my-1 p-3" (click)="getSendReq()" [class.active]="tileSendReqActive">
+      <div class="list-icon">
+        <img src="../../../assets/send-request-grey.png" alt="Icon" />
+      </div>
+      <div class="list-content">
+        <p class="list-title">Sent Requests</p>
+      </div>
+    </div>
+    <div class="list-tile p-3" (click)="getBlocked()" [class.active]="tileBlockedActive">
+      <div class="list-icon">
+        <img src="../../../assets/empty-user-filled.png" alt="Icon" />
+      </div>
+      <div class="list-content">
+        <p class="list-title">Blocked Friends</p>
+      </div>
+    </div>
+    <h4 class="my-2" *ngIf="categories.length > 0">Categories</h4>
+    <div *ngFor="let category of categories">
+      <div class="list-tile p-3">
+        <div class="list-icon">
+          <img src="../../../assets/category.png" alt="Icon" />
+        </div>
+        <div class="list-content">
+          <p class="list-title">#{{category.toUpperCase()}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  &nbsp;&nbsp;
+  <div class="col-md-7 text-center " style="background-color: transparent; color: whitesmoke">
+    <div *ngIf="friends!=[] && showLoading">
+      <div class="friends-tile" style="height: 60px;"></div>
+      <div class="friends-tile" style="height: 60px;"></div>
+      <div class="friends-tile" style="height: 60px;"></div>
+    </div>
+    <div *ngIf="!showLoading && friends.length == 0">
+      <h5 class="">No {{tileMyFriendsActive? " Friends " :tileRecievedReqActive? " Recieved Requests " : tileSendReqActive? " Sent Requests ": " Friends "}} Found!</h5>
+    </div>
+    <div *ngFor="let friend of friends">
+      <a class="friends-tile" style="text-decoration: none;color: var(--lightgray);" [routerLink]="['/profile', friend?.userId]">
+        <div class="leading-icon">
+          <img src="../../../assets/empty-user-filled.png" alt="Leading Icon" />
+        </div>
+        <div class="tile-content">
+          <h5 class="tile-title">{{friend.firstName + " " + friend.lastName}}</h5>
+        </div>
+        <div class="trailing-icon" (click)="handleTrailTap(friend.userId)">
+          <img [src]="tileMyFriendsActive? '../../../assets/friends-icon.png' : tileRecievedReqActive? '../../../assets/send-request.png' : '../../../assets/send-request-grey.png'" alt="Trailing Icon" />
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div id="lottie-loader" class="position-sticky  bottom-0  start-50 translate-middle-x"></div>
+
+
+<div id="toast-sticky-message" class="position-fixed bottom-0 start-50 translate-middle-x my-4">
+  <div class="toast text-center" [style.background-color]="'grey'" [style.color]="'white'">
+    <div class="toast-body">
+      <span id="toast-content"></span>
+    </div>
+  </div>
+</div>

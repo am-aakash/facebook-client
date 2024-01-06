@@ -1,0 +1,56 @@
+<nav class="navbar navbar-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" [routerLink]="['/feed']">
+      &nbsp;
+      <img src="../../assets/fb-icon.png" width="32" height="32" class="d-inline-block align-top" alt="Facebook Icon" />
+      <div class="d-none d-md-inline">
+        &nbsp; Hi, <b>{{ userProfile?.firstName }}</b>
+      </div>
+    </a>
+
+    <div class="image-container">
+      <a (click)="openSearchPopup()"><img class="nav-icons" src="../../assets/search-icon.png" alt="Image 1" /></a>
+      &nbsp;
+      <a [routerLink]="['/friends']"><img class="nav-icons" src="../../assets/friends-icon.png" alt="Image 2" /></a>
+      &nbsp;
+      <a class="profile-icon" (click)="toggleProfileMenu()"><img class="nav-icons" src="../../assets/empty-user.png"
+          alt="Image 3" /></a>&nbsp;
+      <div class="profile-menu" *ngIf="isProfileMenuOpen">
+        <ul>
+          <li>
+            <a style="font-weight: 600; color: var(--facebook-blue); text-decoration: none;" [routerLink]="['/profile', userProfile?.userId]" (click)="toggleProfileMenu()">My Profile</a>
+          </li>
+          <li><a style="font-weight: 600; color: var(--facebook-blue); text-decoration: none;" [routerLink]="['/profile']" (click)="toggleProfileMenu()">Change Password</a></li>
+          <li><a style="font-weight: 600; color: red;  text-decoration: none;" [routerLink]="['/login']" (click)="logout()">Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+<div style="height: 0.5px; background-color: rgb(65, 65, 65)"></div>
+<div class="app-container">
+  <router-outlet></router-outlet>
+</div>
+
+<!-- Search Popup -->
+<div class="modal" [ngClass]="{ show: isSearchPopupOpen }">
+  <div class="modal-dialog" >
+    <div class="modal-content" style="background-color: #3b3b3b;">
+      <div class="modal-header">
+        <h5 class="modal-title" style="color: whitesmoke;">Search</h5>
+        <button type="button" class="btn-close btn-light " (click)="closeSearchPopup()"></button>
+      </div>
+      <div class="modal-body text-center" style="min-height: 400px;">
+      <app-search></app-search>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="toast-sticky-message" class="position-fixed bottom-0 start-50 translate-middle-x my-4">
+  <div class="toast text-center" [style.background-color]="isErrorToast? 'red' : 'var(--facebook-blue)'" [style.color]="'whitesmoke'">
+    <div class="toast-body">
+      <span id="toast-content" style="font-weight: 500;"></span>
+    </div>
+  </div>
+</div>

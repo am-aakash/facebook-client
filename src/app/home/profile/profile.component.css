@@ -1,0 +1,261 @@
+#lottie-loader {
+    height: 200px;
+    width: 200px;
+    position: fixed;
+    top: 85%;
+    left: 65%;
+    transform: translate(-50%, -50%);
+}
+
+@media (max-width: 628px) {
+    #lottie-loader {
+        height: 100px;
+        width: 100px;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+#lottie-loader2 {
+    height: 200px;
+    width: 200px;
+    position: fixed;
+    top: 85%;
+    left: 65%;
+    transform: translate(-50%, -50%);
+}
+
+@media (max-width: 628px) {
+    #lottie-loader2 {
+        height: 100px;
+        width: 100px;
+        display: none;
+    }
+}
+
+/* cover */
+.topImg img {
+    height: 400px;
+    width: 100%;
+    margin-bottom: 130px;
+    border-radius: 8px;
+}
+
+.displayImg {
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    top: 400px;
+    left: 12%;
+    display: flex;
+}
+
+.displayImg img {
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    border: 8px solid #181818;
+}
+
+@media (max-width: 628px) {
+    .topImg img {
+        height: 180px;
+        width: 100%;
+        margin-bottom: 60px;
+        border-radius: 8px;
+    }
+    
+    .displayImg {
+        height: 100px;
+        width: 100px;
+        position: absolute;
+        top: 200px;
+        display: flex;
+    }
+    
+    .displayImg img {
+        height: 100%;
+        width: 100%;
+        border-radius: 50%;
+        border: 6px solid #181818;
+    }
+}
+
+
+.profileName {
+    position: absolute;
+    top: 520px;
+    left: 400px;
+    color: var(--darkgray);
+    font-size: 22px;
+    font-weight: 700;
+}
+
+@media (max-width: 628px) {
+    .profileName {
+        position: unset;
+        color: var(--darkgray);
+    }
+}
+
+/* content section */
+.content {
+    height: 1000px;
+}
+
+.info {
+    background-color: var(--bgcolor);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.info .but button {
+    border: none;
+    outline: none;
+    background: #666;
+    width: 100%;
+    padding: 8px 5px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    color: #000;
+    background-color: var(--bodycolor);
+}
+
+.intro i {
+    color: var(--darkgray);
+    font-size: 18px;
+}
+
+.intro a {
+    color: #000;
+    font-weight: 700;
+}
+
+.intro .text {
+    margin-bottom: 15px;
+}
+
+
+/**********************************************************/
+/* post */
+.post {
+    background-color: var(--bgcolor);
+    /* height: 300px; */
+    border-radius: 8px;
+}
+
+.post .user .image {
+    width: 45px;
+    height: 45px;
+    margin-right: 10px;
+}
+
+.post .user .image img {
+    width: 45px;
+    border-radius: 50%;
+    background-size: cover;
+}
+
+.post {
+    padding: 15px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.post .user {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.post .user .name-image {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.post .user .name-date .name {
+    color: var(--lightgray);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.post .user .name-date .date a {
+    color: var(--darkgray);
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.post .user .name-date .date {
+    cursor: pointer;
+}
+
+.fa-globe-europe {
+    color: var(--darkgray);
+}
+
+.post .post-content {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    max-width: 100%;
+    max-height: 120;
+    color: var(--lightgray);
+}
+
+.post .post-content img {
+    max-width: 100%;
+    height: auto;
+    width: 100%;
+}
+
+.post .actions {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    text-align: center;
+    border-top: 1px solid var(--darkgray);
+    padding-top: 15px;
+    padding-bottom: 0px;
+}
+
+.post .actions i {
+    margin-right: 5px;
+    color: var(--darkgray);
+}
+
+.post .actions div {
+    cursor: pointer;
+    color: var(--darkgray);
+}
+
+
+/* Friends */
+.friends-tile {
+    display: flex;
+    align-items: center;
+    background: #292929;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.friends-tile:hover {
+    background-color: #424242;
+}
+
+.leading-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-right: 10px;
+}
+
+.leading-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

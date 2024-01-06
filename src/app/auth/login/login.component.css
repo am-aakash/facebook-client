@@ -1,0 +1,65 @@
+.login-page {
+  background-color: #181818;
+  color: #fff;
+}
+
+.card {
+  background-color: var(--card-bg);
+  border: 1px solid #505050;
+  border-radius: 8px; /* Beautify the box with rounded corners */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+  margin: 0 6% 0 6%;
+}
+
+.facebook-text {
+  color: var(--facebook-blue); /* Facebook blue color */
+  font-size: 24px; /* Suitable font size for the text */
+  font-weight: bold; /* Apply bold font style */
+  margin-top: 0;
+}
+
+.input-field {
+  border: 1px solid #505050; /* Add border to input fields */
+  border-radius: 5px; /* Round the input field corners */
+  padding: 12px; /* Add some padding for input fields */
+}
+
+.btn-primary {
+  background-color: var(--facebook-blue);
+  border: none;
+  font-weight: bold;
+  width: 100%;
+}
+
+.btn-success {
+  border: none;
+  padding: 12px; /* Increase button padding for a wider appearance */
+}
+
+.forgot-password-link {
+  color: var(--facebook-blue); /* Use Facebook blue for the link color */
+  text-decoration: none;
+}
+
+.divider {
+  border-top: 1px solid #505050; /* Thin divider line */
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.logo {
+  max-width: 50%;
+  height: auto;
+}
+
+.toast {
+  width: 500px;
+  /* background-color: red; */
+  /* color: whitesmoke; */
+  font-weight: bold;
+}
+
+#lottie-loader{
+  height: 100px;
+  width: 100px;
+}
